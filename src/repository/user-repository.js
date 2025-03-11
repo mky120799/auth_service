@@ -26,7 +26,7 @@ async getById(userId) {
         const user = await User.findByPK(userId, {attributes: ['id', 'email']});
         return user;
       } catch (error) {
-        console.log("something went wrong on user-repository.js");
+        console.log("something went wrongg on user-repository.js");
         throw error;
       }
     }
