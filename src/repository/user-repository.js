@@ -30,8 +30,21 @@ async getById(userId) {
         throw error;
       }
     }
+  
+   async getByEmail(userEmail) {
+    try {
+      const user = await User.findOne({ where: { email:userEmail } });
+      return user;
+    } catch (error) {
+      console.log("something went wrong on user-repository.js");
+      throw error;
+    }
+
+  }
 
 }
+
+
 
 module.exports = UserRepository;
 
