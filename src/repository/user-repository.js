@@ -23,7 +23,9 @@ class UserRepository {
 
 async getById(userId) {
     try{
-        const user = await User.findByPK(userId, {attributes: ['id', 'email']});
+       console.log("printing userId at user-repository",userId);
+        const user = await User.findByPk(userId, {attributes: ['id', 'email']});
+        console.log("printing user at user-repository",user);
         return user;
       } catch (error) {
         console.log("something went wrongg on user-repository.js");
@@ -33,7 +35,10 @@ async getById(userId) {
   
    async getByEmail(userEmail) {
     try {
+      console.log("printing userEmail at user-repository:",userEmail
+      );
       const user = await User.findOne({ where: { email:userEmail } });
+      console.log("printing user at user-repository:",user);
       return user;
     } catch (error) {
       console.log("something went wrong on user-repository.js");
