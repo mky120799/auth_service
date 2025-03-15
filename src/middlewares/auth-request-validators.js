@@ -8,6 +8,17 @@ const validateUserAuth = (req, res, next) => {if (!req.body.email || !req.body.p
 next();
 }
 
+  const validateIsAdmin = (req, res, next) => {
+    if (!req.body.id ) {
+        return res.status(401).json({
+            message: "Token is missing",
+            data: {},
+            success: false
+        });
+    }
+    next();
+}
+
 module.exports = {
-    validateUserAuth
+    validateUserAuth,validateIsAdmin
 };

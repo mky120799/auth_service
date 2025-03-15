@@ -88,6 +88,14 @@ class UserService {
             throw error;
         }
     }
+    isAdmin(userId) {
+        try{
+            return this.userRepository.isAdmin(userId);
+        }
+        catch(error){
+            console.error("Something went wrong in the isAdmin process", error);
+            throw error;
+    }   }
 }
 
 module.exports = UserService;

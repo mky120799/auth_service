@@ -46,6 +46,22 @@ async getById(userId) {
     }
 
   }
+  async isAdmin(userId) {
+    try {
+      const user = await User.findByPk(userId);
+      console.log("printing user at user-repository isAdmin:",user);
+      const adminRole = await Role.findOne({
+      
+        where: { name: "ADMIN" }, 
+      })
+      console.log("printing adminRole at user-repository isAdmin:",adminRole);
+       
+      return user.hasRole(adminRole);
+    } catch (error) {
+      console.log("something went wrong on user-repository.js");
+      throw error;
+    }
+  }
 
 }
 
